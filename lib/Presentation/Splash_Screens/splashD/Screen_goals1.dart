@@ -182,10 +182,10 @@ class _Screen_Goals1State extends State<Screen_Goals1> {
           ),
           Expanded(
             flex: 1,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 36),
-              child: Container(
-                child: InkWell(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
                     onTap: () {
                       page.animateToPage(++pageIndex,
                           duration: Duration(milliseconds: 400),
@@ -199,7 +199,7 @@ class _Screen_Goals1State extends State<Screen_Goals1> {
                       }
                     },
                     child: getStartedButton(texxt: 'Submit')),
-              ),
+              ],
             ),
           )
         ],
@@ -207,67 +207,3 @@ class _Screen_Goals1State extends State<Screen_Goals1> {
     );
   }
 }
-
-
-
-
-
-
-//  Expanded(
-//               flex: 2,
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   sizzbox(screenheight, 0.068),
-//                   heading(heading: 'What is your goal?'),
-//                   Padding(
-//                     padding: EdgeInsets.all(10),
-//                     child: Colortext(
-//                         text:
-//                             'It will help us to choose a best\n             program for you',
-//                         size: 11,
-//                         weight: FontWeight.w500,
-//                         color: grey),
-//                   ),
-//                 ],
-//               )),
-
-          // Expanded(
-          //   flex: 8,
-          //   child: Padding(
-          //     padding: EdgeInsets.symmetric(horizontal: 45, vertical: 10),
-          //     child: Container(
-          //       child: PageView(
-          //         controller: page,
-          //         scrollDirection: Axis.horizontal,
-          //         pageSnapping: true,
-          //         children: [
-          //           Container(
-          //             child: Text('1'),
-          //             width: screenwidth * 0.7,
-          //             height: screenheight * 0.6,
-          //             decoration: BoxDecoration(
-          //                 gradient: GreenGradientcolor,
-          //                 borderRadius: BorderRadiusDirectional.circular(20)),
-          //           ),
-          //           Container(
-          //             child: Text('2'),
-          //             width: screenwidth * 0.7,
-          //             height: screenheight * 0.6,
-          //             decoration: BoxDecoration(
-          //                 gradient: GreenGradientcolor,
-          //                 borderRadius: BorderRadiusDirectional.circular(20)),
-          //           ),
-          //           Container(
-          //             child: Text('3'),
-          //             width: screenwidth * 0.7,
-          //             height: screenheight * 0.6,
-          //             decoration: BoxDecoration(
-          //                 gradient: GreenGradientcolor,
-          //                 borderRadius: BorderRadiusDirectional.circular(20)),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),

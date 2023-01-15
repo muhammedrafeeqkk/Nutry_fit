@@ -4,6 +4,8 @@ import 'package:nutry_fit/Core/Sizedbox.dart';
 import 'package:nutry_fit/Core/Text.dart';
 import 'package:nutry_fit/Presentation/Splash_Screens/splashB/widgets/widget.dart';
 
+import '../../Main_page/Screen-Mainpages.dart';
+
 class Screen_welcome extends StatelessWidget {
   const Screen_welcome({Key? key}) : super(key: key);
 
@@ -25,7 +27,13 @@ class Screen_welcome extends StatelessWidget {
                 size: 12,
                 weight: FontWeight.w300),
             sizzbox(screenheight, 0.18),
-            getStartedButton(texxt: 'Go to home')
+            InkWell(
+                onTap: (() => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Screen_MainPage(),
+                    ))),
+                child: getStartedButton(texxt: 'Go to home'))
           ],
         ),
       ),

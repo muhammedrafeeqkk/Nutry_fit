@@ -98,7 +98,7 @@ class Screen_Welcome_back extends StatelessWidget {
                         text: 'Create now',
                         size: 12,
                         weight: FontWeight.w800,
-                        color: pink),
+                        color: mypink),
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(

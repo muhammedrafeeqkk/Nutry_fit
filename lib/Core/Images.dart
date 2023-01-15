@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-const nutryLogoOnlyNormal = Image(
+ nutryLogoOnlyNormal ({ required double width}) {
+  return Image(
   image: AssetImage('assets/images/NURYFIT logo.png'),
-  width: 95,
+  width: width,
 );
+}
 
 const nutryLogoWithText = Image(
   image: AssetImage('assets/images/nutry11.png'),

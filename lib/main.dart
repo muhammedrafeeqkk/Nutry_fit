@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nutry_fit/presentation/Splash_Screens/splashA/splash1.dart';
 import 'package:nutry_fit/presentation/Splash_Screens/splashB/Screen_splash_A1.dart';
 
+import 'Presentation/Main_page/Screen-Mainpages.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,7 +31,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Screen_Splash_A1(),
+      // home: const Screen_Splash_A1(),
+      home: Screen_MainPage(),
     );
   }
 }

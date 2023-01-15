@@ -119,7 +119,7 @@ class Screen_account_create extends StatelessWidget {
                         text: 'Login',
                         size: 12,
                         weight: FontWeight.w800,
-                        color: pink),
+                        color: mypink),
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
