@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:nutry_fit/Presentation/Account_Create/Screen_Create.dart';
+import 'package:nutry_fit/Presentation/Account_Create/Screen_welcomeBack.dart';
+import 'package:nutry_fit/Services/firebaseServices.dart';
 
 import '../widgets.dart';
 
@@ -27,7 +31,25 @@ class Screen_Settings extends StatelessWidget {
               InkWell(
                   child:
                       NormaliconText(text: 'Log out', iconshape: Icons.logout),
-                  onTap: () {}),
+                  onTap: () async {
+                    await firebaseServices().signOutWithGoogle();
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Screen_Welcome_back(),
+                        ),
+                        (route) => false);
+
+                    // FirebaseAuth.instance.signOut().then((value) {
+                    //   print("signed out");
+                    // Navigator.pushAndRemoveUntil(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => Screen_Welcome_back(),
+                    //     ),
+                    //     (route) => false);
+                    // });
+                  }),
               InkWell(
                   child: NormaliconText(
                       text: 'Delete Account', iconshape: Icons.delete),

@@ -52,9 +52,9 @@ class Screen_Profile_complete extends StatelessWidget {
                     textFieldwithsufixIconTogglebar(
                         hinttexxt: 'Choose gender',
                         PrefixxIcon: Icons.person_outline),
-                    textField(
-                        hinttexxt: 'Date of birth',
-                        PrefixxIcon: Icons.date_range_rounded),
+                    // textField(
+                    //     hinttexxt: 'Date of birth',
+                    //     PrefixxIcon: Icons.date_range_rounded),
                     textFieldwithContainer(
                         text: 'KG',
                         PrefixxIcon: Icons.line_weight_rounded,

@@ -39,15 +39,15 @@ class Screen_Profile_edit extends StatelessWidget {
                 ],
               ),
               sizzbox(screenheight, 0.04),
-              textField(
-                  PrefixxIcon: Icons.person_outline, hinttexxt: 'Last name'),
-              textField(PrefixxIcon: Icons.email_outlined, hinttexxt: 'E-mail'),
-              textField(PrefixxIcon: Icons.phone_outlined, hinttexxt: 'Phone'),
-              textFieldwithsufixIcon(
-                  PrefixxIcon: Icons.lock_outlined, hinttexxt: 'Password'),
-              textFieldwithsufixIcon(
-                  PrefixxIcon: Icons.lock_outlined,
-                  hinttexxt: 'Conform Password'),
+              // textField(controller: ,
+              //     PrefixxIcon: Icons.person_outline, hinttexxt: 'Last name'),
+              // textField(PrefixxIcon: Icons.email_outlined, hinttexxt: 'E-mail'),
+              // textField(PrefixxIcon: Icons.phone_outlined, hinttexxt: 'Phone'),
+              // textFieldwithsufixIcon(
+              //     PrefixxIcon: Icons.lock_outlined, hinttexxt: 'Password'),
+              // textFieldwithsufixIcon(
+              //     PrefixxIcon: Icons.lock_outlined,
+              //     hinttexxt: 'Conform Password'),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: InkWell(

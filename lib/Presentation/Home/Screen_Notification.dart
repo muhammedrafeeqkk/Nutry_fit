@@ -39,7 +39,7 @@ class Screen_Notification extends StatelessWidget {
 
   ListTile notificationListTile() {
     return ListTile(
-        leading:const CircleAvatar(backgroundColor: Colors.pink),
+        leading: const CircleAvatar(backgroundColor: Colors.pink),
         title: Colortext(
             text: 'haii nokkiyaaalo onn',
             size: 14,

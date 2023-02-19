@@ -3,17 +3,22 @@ import 'package:flutter/widgets.dart';
 import 'package:nutry_fit/Core/colors.dart';
 import 'package:nutry_fit/Core/text.dart';
 
-Widget textField({required String hinttexxt, required IconData PrefixxIcon}) {
+Widget textField({required String hinttexxt, required IconData PrefixxIcon ,required TextEditingController controller}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 11),
     child: TextFormField(
+      controller: controller,
+      cursorColor: grey,
       decoration: InputDecoration(
-        prefixIcon: Icon(PrefixxIcon),
+        prefixIcon: Icon(
+          PrefixxIcon,
+          color: grey,
+        ),
         hintText: hinttexxt,
         hintStyle: TextStyle(
           fontSize: 12,
         ),
-        fillColor:greyLite,
+        fillColor: greyLite,
         filled: true,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 14.0, horizontal: 1.0),
@@ -26,17 +31,26 @@ Widget textField({required String hinttexxt, required IconData PrefixxIcon}) {
 }
 
 Widget textFieldwithsufixIcon(
-    {required String hinttexxt, required IconData PrefixxIcon}) {
+    {required String hinttexxt, required IconData PrefixxIcon,required TextEditingController controller}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 11),
     child: TextFormField(
+      
+      controller: controller,
+      cursorColor: grey,
       decoration: InputDecoration(
-        prefixIcon: Icon(PrefixxIcon),
+        prefixIcon: Icon(
+          PrefixxIcon,
+          color: grey,
+        ),
         hintText: hinttexxt,
         hintStyle: TextStyle(
           fontSize: 12,
         ),
-        suffixIcon: Icon(Icons.remove_red_eye_outlined),
+        suffixIcon: Icon(
+          Icons.remove_red_eye_outlined,
+          color: grey,
+        ),
         fillColor: Color.fromARGB(255, 240, 245, 245),
         filled: true,
         contentPadding:

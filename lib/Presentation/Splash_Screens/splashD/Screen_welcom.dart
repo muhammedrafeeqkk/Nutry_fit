@@ -15,26 +15,28 @@ class Screen_welcome extends StatelessWidget {
     final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            sizzbox(screenheight, 0.43),
-            heading(heading: 'Welcome,Rafeeq'),
-            sizzbox(screenheight, 0.02),
-            Normaltext(
-                text:
-                    "you are all set now.let's reach you\n           good together with us",
-                size: 12,
-                weight: FontWeight.w300),
-            sizzbox(screenheight, 0.18),
-            InkWell(
-                onTap: (() => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Screen_MainPage(),
-                    ))),
-                child: getStartedButton(texxt: 'Go to home'))
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              sizzbox(screenheight, 0.43),
+              heading(heading: 'Welcome,Rafeeq'),
+              sizzbox(screenheight, 0.02),
+              Normaltext(
+                  text:
+                      "you are all set now.let's reach you\n           good together with us",
+                  size: 12,
+                  weight: FontWeight.w300),
+              sizzbox(screenheight, 0.18),
+              InkWell(
+                  onTap: (() => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Screen_MainPage(),
+                      ))),
+                  child: getStartedButton(texxt: 'Go to home'))
+            ],
+          ),
         ),
       ),
     );

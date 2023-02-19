@@ -23,7 +23,7 @@ class Screen_Premium extends StatelessWidget {
         child: Column(
           children: [
             sizzbox(screenheight, 0.04),
-            textField(hinttexxt: 'Search here....', PrefixxIcon: Icons.search),
+            //  textField(hinttexxt: 'Search here....', PrefixxIcon: Icons.search),
             premiumItemsContainer(
                 navigateTo: Screen_Unlocked_1(),
                 feature1: 'open ANy Where',

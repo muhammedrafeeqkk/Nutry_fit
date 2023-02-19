@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,8 +12,9 @@ import '../../Core/Sizedbox.dart';
 import '../../Core/Text.dart';
 
 class Screen_Welcome_back extends StatelessWidget {
-  const Screen_Welcome_back({Key? key}) : super(key: key);
-
+  Screen_Welcome_back({Key? key}) : super(key: key);
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final screenwidth = MediaQuery.of(context).size.width;
@@ -29,10 +31,13 @@ class Screen_Welcome_back extends StatelessWidget {
               heading(heading: 'Welcome back'),
               sizzbox(screenheight, 0.04),
               textField(
-                  hinttexxt: 'Username',
-                  PrefixxIcon: Icons.person_outline_outlined),
+                  hinttexxt: 'email',
+                  PrefixxIcon: Icons.email,
+                  controller: _emailController),
               textFieldwithsufixIcon(
-                  hinttexxt: 'Password', PrefixxIcon: Icons.lock_outlined),
+                  hinttexxt: 'Password',
+                  PrefixxIcon: Icons.lock_outlined,
+                  controller: _passwordController),
               Padding(
                 padding: EdgeInsets.all(10),
                 child: Colortext(
@@ -44,13 +49,23 @@ class Screen_Welcome_back extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 23),
                 child: InkWell(
-                  child: getStartedButton(texxt: 'Login'),
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Screen_welcome(),
-                      )),
-                ),
+                    child: getStartedButton(texxt: 'Login'),
+                    onTap: () {
+                      FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text)
+                          .then((value) {
+                        print("Successfully Logined");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Screen_welcome(),
+                            )).onError((error, stackTrace) {
+                          print("${error.toString()}");
+                        });
+                      });
+                    }),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
