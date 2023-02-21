@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -35,7 +36,9 @@ class Screen_Home extends StatelessWidget {
                         size: 15,
                         weight: FontWeight.w400,
                         color: grey),
-                    heading(heading: 'Muhammed Rafeeq')
+                    heading(
+                        heading:
+                            "${FirebaseAuth.instance.currentUser!.displayName}")
                   ],
                 ),
                 Container(
@@ -173,7 +176,17 @@ class Screen_Home extends StatelessWidget {
                 enlargeFactor: 0.3,
                 scrollDirection: Axis.horizontal,
               ),
-            )
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: screenwidth * 0.06),
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: GreenliteGradientcolor,
+                    borderRadius: BorderRadius.circular(15)),
+                width: screenwidth,
+                height: screenheight * 0.073,
+              ),
+            ),
           ],
         ),
       ),

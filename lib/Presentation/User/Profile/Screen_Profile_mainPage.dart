@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nutry_fit/Core/Sizedbox.dart';
 import 'package:nutry_fit/Core/Text.dart';
 import 'package:nutry_fit/Core/colors.dart';
@@ -28,23 +31,28 @@ class Screen_Profile extends StatelessWidget {
                   children: [
                     sizzbox(screenheight, 0.1),
                     CircleAvatar(
-                      radius: 65,
-                      backgroundImage: AssetImage('assets/images/profile.png'),
-                    ),
+                        radius: 65,
+                        backgroundImage: NetworkImage(
+                            "${FirebaseAuth.instance.currentUser!.photoURL}")
+
+                        //AssetImage('assets/images/profile.png'),
+                        ),
                     sizzbox(screenheight, 0.015),
                     Normaltext(
-                        text: 'Muhammed Rafeeq ',
+                        text:
+                            "${FirebaseAuth.instance.currentUser!.displayName}",
                         size: 18,
                         weight: FontWeight.w500),
                     sizzbox(screenheight, 0.003),
                     Colortext(
-                        text: '9048939433',
+                        text:
+                            "${FirebaseAuth.instance.currentUser!.phoneNumber}",
                         size: 15,
                         weight: FontWeight.w500,
                         color: grey),
                     sizzbox(screenheight, 0.003),
                     Colortext(
-                        text: 'rafeeqshan06@gmail.com',
+                        text: "${FirebaseAuth.instance.currentUser!.email}",
                         size: 14,
                         weight: FontWeight.w500,
                         color: grey),
@@ -56,11 +64,13 @@ class Screen_Profile extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                       ),
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Screen_Profile_edit(),
-                          )),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Screen_Profile_edit(),
+                            ));
+                      },
                       child: Normaltext(
                           text: 'Edit', size: 13, weight: FontWeight.w500),
                     ),

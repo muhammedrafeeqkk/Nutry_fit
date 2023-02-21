@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1096519534748",
-    "project_id": "nutry-fit",
-    "storage_bucket": "nutry-fit.appspot.com"
+    "project_number": "684714834533",
+    "project_id": "nutryfit-1",
+    "storage_bucket": "nutryfit-1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1096519534748:android:f6dabeb6219b813550c559",
+        "mobilesdk_app_id": "1:684714834533:android:a39d81941d54307e02648c",
         "android_client_info": {
           "package_name": "com.example.nutry_fit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1096519534748-0ht1a6eq2krbp1jbckdqat490433dmic.apps.googleusercontent.com",
+          "client_id": "684714834533-rk1catm4627f4qmmp6421s47740o943i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nutry_fit",
+            "certificate_hash": "9a2f7cc9335ec0274de23b26313cfbe4c42f8c22"
+          }
+        },
+        {
+          "client_id": "684714834533-3op42e2c1sg9mnuh74747irrlq9t898k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCxOO88pAq2MKcZQrkwgpbtfvZ4VJngHek"
+          "current_key": "AIzaSyBgFyaPmAqYS92pKiJYmE1-jUKmRxkY-UM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1096519534748-0ht1a6eq2krbp1jbckdqat490433dmic.apps.googleusercontent.com",
+              "client_id": "684714834533-3op42e2c1sg9mnuh74747irrlq9t898k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

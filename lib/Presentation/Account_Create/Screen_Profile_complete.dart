@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gender_picker/source/enums.dart';
+import 'package:gender_picker/source/gender_picker.dart';
 import 'package:nutry_fit/Core/Sizedbox.dart';
 import 'package:nutry_fit/Core/Text.dart';
 
@@ -10,7 +12,9 @@ import 'package:nutry_fit/Presentation/Splash_Screens/splashC/Screen_page4.dart'
 import 'package:nutry_fit/Presentation/Splash_Screens/splashD/Screen_goals1.dart';
 
 class Screen_Profile_complete extends StatelessWidget {
-  const Screen_Profile_complete({Key? key}) : super(key: key);
+  Screen_Profile_complete({Key? key}) : super(key: key);
+  TextEditingController _weigtcontroller = TextEditingController();
+  TextEditingController _heigtcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +53,20 @@ class Screen_Profile_complete extends StatelessWidget {
                           weight: FontWeight.w500),
                     ),
                     sizzbox(screenheight, 0.03),
-                    textFieldwithsufixIconTogglebar(
-                        hinttexxt: 'Choose gender',
-                        PrefixxIcon: Icons.person_outline),
+                    genderpick(false, false),
+                    // textFieldwithsufixIconTogglebar(
+                    //     hinttexxt: 'Choose gender',
+                    //     PrefixxIcon: Icons.person_outline),
                     // textField(
                     //     hinttexxt: 'Date of birth',
                     //     PrefixxIcon: Icons.date_range_rounded),
                     textFieldwithContainer(
+                        controller: _weigtcontroller,
                         text: 'KG',
                         PrefixxIcon: Icons.line_weight_rounded,
                         hinttexxt: 'Your weight'),
                     textFieldwithContainer(
+                        controller: _heigtcontroller,
                         text: 'CM',
                         PrefixxIcon: Icons.height_rounded,
                         hinttexxt: ' Your height'),
@@ -82,5 +89,25 @@ class Screen_Profile_complete extends StatelessWidget {
         ]),
       ),
     ));
+  }
+
+  genderpick(bool _vertical, bool _othergender) {
+    return Container(
+      child: GenderPickerWithImage(
+          onChanged: (Gender? _gender) {
+            print(_gender);
+          },
+          verticalAlignedText: _vertical,
+          showOtherGender: _othergender,
+          selectedGender: Gender.Male,
+          equallyAligned: true,
+          isCircular: true,
+          selectedGenderTextStyle:
+              TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+          unSelectedGenderTextStyle:
+              TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+          size: 34,
+          padding: EdgeInsets.only(left: 58, top: 10, bottom: 20)),
+    );
   }
 }

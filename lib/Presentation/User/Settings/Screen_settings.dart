@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -32,7 +33,22 @@ class Screen_Settings extends StatelessWidget {
                   child:
                       NormaliconText(text: 'Log out', iconshape: Icons.logout),
                   onTap: () async {
+                    FirebaseAuth.instance.signOut();
                     await firebaseServices().signOutWithGoogle();
+                    var snackBar1 = SnackBar(
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Color.fromARGB(0, 0, 0, 0),
+                      content: AwesomeSnackbarContent(
+                        title: 'Alert!',
+                        message: 'account Logout',
+                        contentType: ContentType.failure,
+                      ),
+                    );
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(snackBar1);
+
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
@@ -53,7 +69,53 @@ class Screen_Settings extends StatelessWidget {
               InkWell(
                   child: NormaliconText(
                       text: 'Delete Account', iconshape: Icons.delete),
-                  onTap: () {}),
+                  onTap: () async {
+                    await FirebaseAuth.instance.currentUser!.delete();
+                    var snackBar1 = SnackBar(
+                      elevation: 0,
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Color.fromARGB(0, 0, 0, 0),
+                      content: AwesomeSnackbarContent(
+                        title: 'Alert!',
+                        message: 'your account deleted',
+                        contentType: ContentType.failure,
+                      ),
+                    );
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(snackBar1);
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Screen_account_create(),
+                        ),
+                        (route) => false).catchError(
+                      (e) {
+                        print(e.toString());
+                        // var splitted = e.toString();
+                        // final next = splitted.split();
+                        // final neew = next[1];
+                        var snackBar = SnackBar(
+                          /// need to set following properties for best effect of awesome_snackbar_content
+                          elevation: 0,
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Colors.transparent,
+
+                          content: AwesomeSnackbarContent(
+                            title: 'Alert!',
+
+                            message: e.toString(),
+
+                            /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                            contentType: ContentType.failure,
+                          ),
+                        );
+                        ScaffoldMessenger.of(context)
+                          ..hideCurrentSnackBar()
+                          ..showSnackBar(snackBar);
+                      },
+                    );
+                  }),
               InkWell(
                   child: NormaliconText(
                       text: 'Rate Us', iconshape: Icons.rate_review),

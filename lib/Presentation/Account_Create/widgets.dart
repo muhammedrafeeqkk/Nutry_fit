@@ -3,7 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:nutry_fit/Core/colors.dart';
 import 'package:nutry_fit/Core/text.dart';
 
-Widget textField({required String hinttexxt, required IconData PrefixxIcon ,required TextEditingController controller}) {
+Widget textField(
+    {required String hinttexxt,
+    required IconData PrefixxIcon,
+    required TextEditingController controller}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 11),
     child: TextFormField(
@@ -31,11 +34,12 @@ Widget textField({required String hinttexxt, required IconData PrefixxIcon ,requ
 }
 
 Widget textFieldwithsufixIcon(
-    {required String hinttexxt, required IconData PrefixxIcon,required TextEditingController controller}) {
+    {required String hinttexxt,
+    required IconData PrefixxIcon,
+    required TextEditingController controller}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 11),
     child: TextFormField(
-      
       controller: controller,
       cursorColor: grey,
       decoration: InputDecoration(
@@ -86,12 +90,14 @@ Widget loginWithWb(double screenwidth, String imagepath) {
 Widget textFieldwithContainer(
     {required String hinttexxt,
     required IconData PrefixxIcon,
+    required TextEditingController controller,
     required String text}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 11),
-    child: TextFormField(
+    child: TextFormField(controller: controller,
+      keyboardType: TextInputType.number,
       decoration: InputDecoration(
-        prefixIcon: Icon(PrefixxIcon),
+        prefixIcon: Icon(PrefixxIcon, color: grey),
         hintText: hinttexxt,
         icon: Container(
           child: Center(

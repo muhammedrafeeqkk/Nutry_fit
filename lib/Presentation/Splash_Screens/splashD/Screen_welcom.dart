@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutry_fit/Core/Sizedbox.dart';
 
@@ -20,7 +21,9 @@ class Screen_welcome extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               sizzbox(screenheight, 0.43),
-              heading(heading: 'Welcome,Rafeeq'),
+              heading(
+                  heading:
+                      'Welcome,${FirebaseAuth.instance.currentUser!.displayName}'),
               sizzbox(screenheight, 0.02),
               Normaltext(
                   text:

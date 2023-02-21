@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class firebaseServices {
@@ -28,4 +29,23 @@ class firebaseServices {
     await _auth.signOut();
     await _googleSigning.signOut();
   }
+
+  // firebaseUserId() async {
+  //   await _auth.authStateChanges().listen((User? user) {
+  //     print(user!.updateDisplayName(displayName));
+
+  //   });
+  // }
 }
+
+
+// class FirebaswServices1 {
+//   FirebaseAuth.instance
+//                         .authStateChanges()
+//                         .listen((User? user) {
+//                       if (user != null) {
+//                         print("rafeeh${user.uid}");
+//                       }
+//                     });
+  
+// }
